@@ -30,7 +30,7 @@ sub check_line_safe {
     if (abs($diff) > 3) {
       return !$damper ?
         check_line_safe($x ? [@$line[0..$x,$x+2..$#$line]] : [@$line[$x+2..$#$line]], 1) ||
-        check_line_safe([@$line[0..$x-1,$x+2..$#$line]], 1)
+        check_line_safe([@$line[0..$x-1,$x+1..$#$line]], 1)
         : 0;
     }
     elsif ($dec == 1 && $diff >= 0) {
