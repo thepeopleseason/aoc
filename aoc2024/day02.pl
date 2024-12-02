@@ -1,12 +1,5 @@
 #!/usr/bin/perl -n -F/\s/
 
-use Data::Dumper;
-
-BEGIN {
-  my @levels;
-  my $safe;
-}
-
 END {
   print $safe,"\n";
 }
