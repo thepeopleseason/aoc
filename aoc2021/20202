@@ -1,0 +1,4 @@
+perl -nle 'BEGIN {$count=0} END {print $count} ($nums, $letter, $pw) = split(/ /, $_); ($min, $max) = split(/\-/, $nums); $letter =~ s/://; @pw = split(//, $pw); $count++ if (($pw[$min-1] eq $letter && $pw[$max-1] ne $letter)||($pw[$min-1] ne $letter && $pw[$max-1] eq $letter)) ;' ~/20202.txt
+
+!1237 
+perl -nle 'BEGIN {$count=0} END {print $count} ($nums, $letter, $pw) = split(/ /, $_); ($min, $max) = split(/\-/, $nums); $letter =~ s/://; @pw = grep (/$letter/, split(//, $pw)); print $letter,":",scalar(@pw),":", $nums, @pw, $pw; if (scalar(@pw) >= $min && scalar(@pw) <= $max) { $count++; print print $letter,":",scalar(@pw),":", $nums, @pw, $pw; }' ~/20202.txt
