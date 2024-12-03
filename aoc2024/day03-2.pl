@@ -1,13 +1,9 @@
 #!/usr/bin/perl -nl -0777 -F/don\'t\(\)/
 
 END {
-  for my $token (@F) {
-    if ($token eq $F[0]) {
-      $sum += process_mult_array([split(/mul/, $token)]);
-    }
-    else {
-      $sum += process_mult_array([split(/mul/, [split(m/do\(\)/, $token, 2)]->[1])]);
-    }
+  foreach (@F) {
+    $sum += process_mult_array(
+      [split(/mul/, $_ eq $F[0] ? $_ : [split(m/do\(\)/, $_, 2)]->[1] )]);
   }
   print $sum;
 }
