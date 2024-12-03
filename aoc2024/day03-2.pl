@@ -7,9 +7,9 @@ END {
     }
     else {
       next unless $token =~ m/do\(\)/;
-      my @dos = split(m/do\(\)/, $token, 2);
-      my @muls = split(/mul/,$dos[1]);
-      $sum += process_mult_array(\@muls);
+      $sum += process_mult_array(
+        [split(/mul/,
+               [split(m/do\(\)/, $token, 2)]->[1])]);
     }
   }
   print $sum;
