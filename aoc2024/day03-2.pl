@@ -1,4 +1,4 @@
-#!/usr/bin/perl -nl -F/don\'t\(\)/
+#!/usr/bin/perl -nl -0777 -F/don\'t\(\)/
 
 END {
   for my $token (@F) {
