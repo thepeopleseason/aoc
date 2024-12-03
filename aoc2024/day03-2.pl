@@ -6,10 +6,7 @@ END {
       $sum += process_mult_array([split(/mul/, $token)]);
     }
     else {
-      next unless $token =~ m/do\(\)/;
-      $sum += process_mult_array(
-        [split(/mul/,
-               [split(m/do\(\)/, $token, 2)]->[1])]);
+      $sum += process_mult_array([split(/mul/, [split(m/do\(\)/, $token, 2)]->[1])]);
     }
   }
   print $sum;
